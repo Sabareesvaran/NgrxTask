@@ -1,1 +1,81 @@
-<p>customer-add works!</p>
+<div class="row my-4">
+  <form [formGroup]="CustomerForm" (ngSubmit)="onAddCustomer()">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Name</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Customer Name"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            formControlName="Name"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Phone</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Phone Number"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            formControlName="Phone"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Address</span>
+          </div>
+          <textarea
+          type="text"
+            class="form-control"
+            placeholder="Address"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            formControlName="Address"
+          ></textarea>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Age</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Age"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            formControlName="Age"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-12">
+        <div class="my-3">
+          <button class="btn btn-info" type="submit">Add Customer</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

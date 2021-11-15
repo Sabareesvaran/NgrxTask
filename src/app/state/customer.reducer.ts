@@ -1,6 +1,5 @@
-import { state } from "@angular/animations";
-import { createReducer, on } from "@ngrx/store";
-import { addCustomer, modifyCustomer } from "./customer.action";
+import { createReducer, on, props } from "@ngrx/store";
+import { addCustomer, deleteCustomer, modifyCustomer } from "./customer.action";
 import { InitialState } from "./customer.state";
 
 const _customerReducer = createReducer(InitialState,on(addCustomer,(state, action)=>{
@@ -12,10 +11,23 @@ const _customerReducer = createReducer(InitialState,on(addCustomer,(state, actio
     customers:[...state.customers,add]
   }
 }),on(modifyCustomer,(state,action)=>{
-  console.log("ModifyCustomer",action);
+
+  const updatedCustomer = state.customers.map(cust =>{
+    return action.customer.id === cust.id ? action.customer : cust
+  })
 
   return{
     ...state,
+    customers:updatedCustomer
+  }
+}),on(deleteCustomer,(state,action)=>{
+
+  const updatedState = state.customers.filter(cust=>{
+    return cust.id != action.id
+  })
+  return{
+    ...state,
+    customers:updatedState
   }
 }))
 

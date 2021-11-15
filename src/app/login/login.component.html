@@ -1,1 +1,31 @@
-<p>login works!</p>
+
+<div *ngIf="!isAuthendicated" class="row " style="margin: 30px;">
+  <div class="col-md-6 offset-md-3">
+    <h3>Login</h3>
+    <hr>
+      <div class="mb-3">
+        <label >Email</label>
+        <input type="text" [(ngModel)]="Email" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label >Password</label>
+        <input type="text" [(ngModel)]="Password" class="form-control">
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-primary" (click)="onLogin()">
+          Login
+        </button>
+      </div>
+  </div>
+</div>
+
+<div *ngIf="isAuthendicated">
+  <app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+</div>

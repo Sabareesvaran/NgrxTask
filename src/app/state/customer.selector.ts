@@ -18,3 +18,5 @@ return state.customers.filter(value=>{value.id === props.id})
 
 
 })
+
+// export const getByid = createSelector(getCustomerState,(state,props))

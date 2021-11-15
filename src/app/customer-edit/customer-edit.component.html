@@ -1,0 +1,41 @@
+  <div  style="margin-top: 30px;">
+    <form [formGroup]="updateForm" (ngSubmit)="onUpdateCustomer()">
+      <div class="my-3">
+        <div class="row">
+          <div class="col-md-6">
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="Name" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Phone</label>
+            <input type="text" class="form-control" formControlName="Phone" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Address</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="Address"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label>age</label>
+            <input type="text" class="form-control" formControlName="Age" />
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-6">
+            <div class="my-3">
+              <button class="btn btn-info" type="submit">Update Customer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

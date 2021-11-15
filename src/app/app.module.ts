@@ -8,6 +8,11 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer } from './appState/app.state';
 import { CustomerAddComponent } from './customer-add/customer-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CustomerEditComponent } from './customer-edit/customer-edit.component';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -15,12 +20,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     CustomerListComponent,
     CustomerAddComponent,
+    NavbarComponent,
+    CustomerEditComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(appReducer)
+    AppRoutingModule,
+    StoreModule.forRoot(appReducer),
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

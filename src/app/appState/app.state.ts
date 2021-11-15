@@ -1,4 +1,5 @@
 
+import { loginReducer } from "../login/state/login.reducer";
 import { customerReducer } from "../state/customer.reducer";
 import { CustomerState } from "../state/customer.state";
 
@@ -7,5 +8,7 @@ export interface AppState{
 }
 
 export const appReducer = {
- customers:customerReducer
+ customers:customerReducer,
+ login:loginReducer
+
 }
