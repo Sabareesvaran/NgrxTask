@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store"
-import { login } from "./login.actions"
+import { login, logout } from "./login.actions"
 import { InitialState } from "./login.state"
 
 
@@ -15,6 +15,11 @@ const _loginReducer = createReducer(InitialState,on(login,(state,action)=>{
   return{
     ...state,
       isAuthendicated : bool
+  }
+}),on(logout,(state)=>{
+  return {
+    ...state,
+    isAuthendicated:false
   }
 }))
 

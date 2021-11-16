@@ -7,6 +7,7 @@ import { Customer } from '../state/customer.state';
 export class SharedService {
 
   customer:Customer
+  authToken:boolean = false;
   constructor() { }
 
   setCustomer(data:Customer){
@@ -15,4 +16,11 @@ export class SharedService {
   getCustomer(){
     return this.customer
   }
+  getToken(){
+    return this.authToken
+  }
+  setToken(token:boolean){
+    this.authToken = token
+  }
+
 }

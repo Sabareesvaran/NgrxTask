@@ -1,4 +1,4 @@
-  <div  style="margin-top: 30px;">
+  <!-- <div  style="margin-top: 30px;">
     <form [formGroup]="updateForm" (ngSubmit)="onUpdateCustomer()">
       <div class="my-3">
         <div class="row">
@@ -38,4 +38,103 @@
         </div>
       </div>
     </form>
+  </div> -->
+
+
+
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <h3 class="text-center">Update Customer</h3>
+          <form [formGroup]="updateForm" (ngSubmit)="onUpdateCustomer()">
+            <div class="form-group">
+              <label>Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Customer Name"
+                aria-describedby="basic-addon1"
+                formControlName="Name"
+                [ngClass]="{ 'is-invalid': f.Name.touched && f.Name.errors }"
+              />
+              <div
+                *ngIf="f.Name.errors && f.Name.touched"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.Name.errors.required">Name is required</div>
+                <div *ngIf="f.Name.errors.minlength">Name must be at least 4 characters</div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Phone</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone Number"
+                aria-describedby="basic-addon1"
+                formControlName="Phone"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                (keypress)="keyPressNumbers($event)"
+                [ngClass]="{ 'is-invalid': f.Phone.touched && f.Phone.errors }"
+              />
+              <div
+                *ngIf="f.Phone.errors && f.Phone.touched"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.Phone.errors.required">
+                  Phone Number is required
+                </div>
+                <div *ngIf="f.Phone.errors.minlength">Phone Number must be at least 10 characters</div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Address</label>
+              <textarea
+                type="text"
+                class="form-control"
+                placeholder="Address"
+                aria-describedby="basic-addon1"
+                formControlName="Address"
+                [ngClass]="{ 'is-invalid': f.Address.touched && f.Address.errors }"
+              ></textarea>
+              <div
+                *ngIf="f.Address.errors && f.Address.touched"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.Address.errors.required">Address is required</div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Age</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Age"
+                aria-describedby="basic-addon1"
+                inputmode="numeric"
+                formControlName="Age"
+                (keypress)="keyPressNumbers($event)"
+                [ngClass]="{ 'is-invalid': f.Age.touched && f.Age.errors }"
+              />
+              <div *ngIf="f.Age.errors && f.Age.touched" class="invalid-feedback">
+                <div *ngIf="f.Age.errors.required">Age is required</div>
+              </div>
+            </div>
+            <div class="form-group text-center">
+              <button class="btn btn-info "  [disabled]="!updateForm.valid" type="submit">
+                Update Customer
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>

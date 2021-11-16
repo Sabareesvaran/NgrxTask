@@ -1,7 +1,12 @@
+
+
+<div class="container">
+
+
 <div class="row">
   <div class="col-md-12">
     <div class="my-3">
-      <h2>Customer List</h2>
+      <h2 class="text-center">Customer List</h2>
     </div>
     <div class="my-3 text-right">
       <button class="btn btn-primary" [routerLink]="['add']" >
@@ -17,13 +22,11 @@
             <th scope="col">Phone</th>
             <th scope="col">Address</th>
             <th scope="col">Age</th>
-            <th>Action</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
-          <!-- <tr>
-            <td colspan="5" class="alert alert-danger" *ngIf="error$ | async as error">{{error}}</td>
-          </tr> -->
+
           <tr></tr>
           <tr *ngFor="let customer of customers | async">
             <th>{{customer.id}}</th>
@@ -31,7 +34,7 @@
             <td>{{ customer.Phone }}</td>
             <td>{{ customer.Address }}</td>
             <td>{{ customer.Age }}</td>
-            <td>
+            <td class="text-center">
               <!-- <a>edit</a> -->
               <a
                 class="btn btn-dark"
@@ -52,4 +55,5 @@
     </div>
   </div>
 
+</div>
 </div>
